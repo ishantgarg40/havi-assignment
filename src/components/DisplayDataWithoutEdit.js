@@ -8,6 +8,8 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useSelector } from 'react-redux';
+import proptypes from 'prop-types';
+
 const style = {
   lineBreak: {
     marginTop: '10px',
@@ -116,3 +118,7 @@ export default function DisplayDataWithoutEdit({ index }) {
     </>
   );
 }
+
+DisplayDataWithoutEdit.propTypes = {
+  index: proptypes.number.isRequired,
+};

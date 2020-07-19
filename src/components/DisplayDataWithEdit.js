@@ -12,16 +12,9 @@ import {
   MuiPickersUtilsProvider,
 } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
-import { makeStyles } from '@material-ui/core/styles';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { actionForUpdateRecord, actionForAddTag } from '../redux/actions';
-import { ADD_TAG } from '../redux/contants';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-}));
+import proptypes from 'prop-types';
 
 const styles = {
   lineBreak: {
@@ -45,7 +38,7 @@ const styles = {
   },
 };
 
-function DisplayDataWithEdit({ index }) {
+export default function DisplayDataWithEdit({ index }) {
   const state = useSelector((state) => ({
     records: state.dataRecords,
     tags: state.tags,
@@ -175,8 +168,10 @@ function DisplayDataWithEdit({ index }) {
             value={currentRecord.tag}
             onChange={(val) => handleChange(val)}
           >
-            {state.tags.map((tag) => (
-              <option value={tag}>{tag}</option>
+            {state.tags.map((tag, index) => (
+              <option key={index} value={tag}>
+                {tag}
+              </option>
             ))}
           </Select>
         </FormControl>
@@ -213,4 +208,6 @@ function DisplayDataWithEdit({ index }) {
   );
 }
 
-export default DisplayDataWithEdit;
+DisplayDataWithEdit.propTypes = {
+  index: proptypes.number.isRequired,
+};

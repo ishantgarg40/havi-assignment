@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Paper } from '@material-ui/core';
 import CancelIcon from '@material-ui/icons/Cancel';
 import { actionForOpenDataRecords } from '../redux/actions';
-import IndividualRecords from './IndividualRecords';
+import IndividualRecords from '../components/IndividualRecords';
 
 const style = {
   container: {

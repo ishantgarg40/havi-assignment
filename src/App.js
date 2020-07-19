@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from './components/Form';
-import DataRecords from './components/DataRecords';
+import Form from './containers/Form';
+import DataRecords from './containers/DataRecords';
 import { useSelector } from 'react-redux';
 
 function App() {
